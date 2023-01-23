@@ -50,7 +50,6 @@ fn main() {
 			'game_loop: loop {
 				if let Ok(character) = stdout.read_char() {
 					match character {
-						'`' => break 'game_loop,
 						_ => {
 							if phrase.handle_input(character) {
 								println!("");

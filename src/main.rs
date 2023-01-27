@@ -1,34 +1,10 @@
 use console::{style, Term};
 use std::fs::File;
-use std::io::{self, BufRead, Write};
+use std::io::{self, BufRead};
 use std::path::Path;
 
-struct Phrase {
-	content: String,
-	index: usize,
-}
-
-impl Phrase {
-	fn handle_input(&mut self, character: char) -> bool {
-		if self.index >= self.content.len() {
-			return true;
-		}
-		if character == self.content.chars().nth(self.index).unwrap() {
-			print!("{}", style(character).green());
-			io::stdout().flush().unwrap();
-			self.index += 1;
-		} else {
-			print!("{}", style(character).red());
-			io::stdout().flush().unwrap();
-			let stdout = Term::stdout();
-			stdout.move_cursor_left(1).unwrap();
-		}
-		if self.index >= self.content.len() {
-			return true;
-		}
-		return false;
-	}
-}
+pub mod phrase;
+use phrase::Phrase;
 
 fn main() {
 	let stdout = Term::buffered_stdout();

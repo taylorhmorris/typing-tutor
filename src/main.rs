@@ -25,14 +25,10 @@ fn main() {
 			println!("{}", phrase.content);
 			'game_loop: loop {
 				if let Ok(character) = stdout.read_char() {
-					match character {
-						_ => {
-							if phrase.handle_input(character) {
-								println!("");
-								break 'game_loop;
-							}
-						}
-					}
+          if phrase.handle_input(character) {
+            println!("");
+            break 'game_loop;
+          }
 				}
 			}
 		}

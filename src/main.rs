@@ -6,14 +6,17 @@ use std::path::Path;
 pub mod phrase;
 use phrase::Phrase;
 
-fn main() {
-	let stdout = Term::buffered_stdout();
+fn play_file<P>(filename: P) -> bool
+where
+  P: AsRef<Path>,
+{
+  let stdout = Term::buffered_stdout();
 	let mut phrase = Phrase {
 		content: "".to_string(),
 		index: 0,
 	};
 
-	if let Ok(lines) = read_lines("./README.md") {
+  if let Ok(lines) = read_lines(filename) {
 		for line in lines {
 			phrase.index = 0;
 			if let Ok(line_str) = line {
@@ -32,6 +35,14 @@ fn main() {
 				}
 			}
 		}
+		return true;
+	} else {
+		return false;
+	}
+}
+
+fn main() {
+	if play_file("./README.md") {
 		println!("\n{}", style("COMPLETED!").green());
 	} else {
 		println!("Invalid File");

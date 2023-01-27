@@ -2,6 +2,7 @@ use console::{style, Term};
 use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
+use std::env;
 
 pub mod phrase;
 use phrase::Phrase;
@@ -42,7 +43,16 @@ where
 }
 
 fn main() {
-	if play_file("./README.md") {
+  let args: Vec<String> = env::args().collect();
+  match args.len() {
+    2 => println!("loading {}", args[1]),
+    _ => {
+      println!("usage: {} <filename>", args[0]);
+      println!("\t<filename>: a text file");
+      return;
+    }
+  }
+	if play_file(args[1].clone()) {
 		println!("\n{}", style("COMPLETED!").green());
 	} else {
 		println!("Invalid File");

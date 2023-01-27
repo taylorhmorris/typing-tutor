@@ -1,3 +1,16 @@
+//! A simple program to help you practice your typing
+//!
+//! To get started using Cargo
+//! ```bash
+//! cargo run -- README.md
+//! ```
+//!
+//! You can replace `README.md` with the path to any text file!
+//!
+//! Then, type the phrases that appear in the prompt.
+//! If you press the correct key, it will be printed in green and advance to the next letter.
+//! Otherwise, it will print the key in red and wait for you to type the correct key.
+
 use console::{style, Term};
 use std::fs::File;
 use std::io::{self, BufRead};

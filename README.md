@@ -11,6 +11,8 @@ git clone https://github.com/tmorris42/typing-tutor.git
 ```
 
 ## Usage
+![demo](https://user-images.githubusercontent.com/74878425/224018256-230b1ef8-8378-43cb-9da8-25e552366d38.gif)
+
 To get started using Cargo
 ```bash
 cd typing-tutor

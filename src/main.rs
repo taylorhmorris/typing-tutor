@@ -24,6 +24,7 @@ fn play_file<P>(filename: P) -> bool
 where
   P: AsRef<Path>,
 {
+  Term::clear_screen(&Term::stdout()).expect("Failed to clear terminal");
   let stdout = Term::buffered_stdout();
 	let mut phrase = Phrase {
 		content: "".to_string(),

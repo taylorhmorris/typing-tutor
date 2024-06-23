@@ -2,12 +2,12 @@
 `Typing Tutor` is a simple program to help you practice your typing
 
 ## Documentation
-Documentation is available at https://tmorris42.github.io/typing-tutor/
+Documentation is available at https://taylorhmorris.github.io/typing-tutor/
 
 ## Installation
 To get started using Cargo
 ```bash
-git clone https://github.com/tmorris42/typing-tutor.git
+git clone https://github.com/taylorhmorris/typing-tutor.git
 ```
 
 ## Usage
